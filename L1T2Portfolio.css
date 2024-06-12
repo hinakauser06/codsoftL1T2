@@ -1,9 +1,9 @@
 :root{
     --primary-color: rgb(212, 212, 248);;
-    --secondary-color:rgb(206, 206, 217);
+    --secondary-color:rgb(242, 242, 247);
     --third-color:black;
     --forth-color: rgb(173, 173, 219);
-    
+    --five-color:  rgb(96, 96, 154);
 }
 .row{
     margin-left: 40px !important;
@@ -13,17 +13,8 @@
 .main{
     background-color: var(--secondary-color);
 }
-/* row-1 */
-/* #sign{
-    border: 1px solid red;
-} */
-
-
-
 /* row-2 */
 .row-2{
-    /* border: 1px solid rgb(15, 2, 2); */
-    /* margin-top: 80px; */
     height: 300px;
     background-color: var(--secondary-color);
 }
@@ -41,7 +32,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 24px;
+    font-size: 20px;
     font-family: Arial, sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
@@ -60,22 +51,16 @@
 }
 .typewriter-container {
     display: inline-block;
-    text-align: justify;
-    /* padding-top: 50px; */
-/*  */
-/* border: 1px solid red; */
+    /* text-align: justify; */
     text-align: center;
     padding-top: 30px;
     overflow:visible;
     height: 300px;
-
 }
-
 #cursor {
     border-right: 2px solid red;
     animation: blink 0.7s steps(1) infinite;
 }
-
 @keyframes blink {
     from { border-color: transparent; }
     to { border-color: red; }
@@ -83,14 +68,15 @@
 /* for header */
 header {
     position: fixed;
-    top: -60px; /* Hide the menu off-screen */
+    top: 0; /*Hide the menu off-screen */
     left: 0;
     width: 100%;
     background: var(--forth-color);
     /* #f0dede; */
-    color: white;
-    transition: top 0.3s;
-    z-index: 1000;
+    /* color: white; */
+    /* transition: top 0.001s; */
+    z-index: 1;
+    height: 35px;
 }
 header nav ul {
     list-style: none;
@@ -104,11 +90,26 @@ header nav ul li {
     margin: 0 15px;
 }
 
+#sign{
+    height: 35px;
+}
+
 header nav ul li a {
     color: black;
     text-decoration: none;
-    padding: 15px;
+    text-align: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 20px;
+    /* padding: 15px; */
     display: block;
+}
+nav ul li a:hover, .menu a.active {
+    background-color: var(--five-color);
+    color: white;
+    /* display: block; */
+    /* position:relative */
 }
 
 .content {
@@ -117,9 +118,161 @@ header nav ul li a {
 
 section {
     padding: 50px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--five-color);
 }
 
 section h4 {
     margin-top: 0;
+}
+/* Container for the progress bar */
+.progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 8px;
+}
+
+/* The actual progress bar */
+.progress-bar {
+    height: 100%;
+    /* background-color: #4caf50 ; Set the color of the progress bar */
+    width: 0;
+    border-radius: 2px 0 0 2px; /* Only round the left side */
+    transition: width 0.5s ease-in-out;
+}
+
+/* for experience color */
+/* Custom style for nav-pills */
+.nav-pills .nav-link {
+    /* background-color: none*ar(--five-color); Change background color */
+    color: rgb(5, 61, 86);              /* Change text color */
+    border-radius: 0.25rem;    /* Change border radius if needed */
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: #6c0b92 !important; /* Change background color for active state */
+    color: white;              /* Change text color for active state */
+}
+
+.nav-pills .nav-link:hover {
+    background-color: var(--five-color); /* Change background color on hover */
+    color: white;              /* Change text color on hover */
+}
+/* icon  */
+.icon-style{
+    color: blueviolet;
+     height: 20px; 
+     width: 20px;
+}
+
+/*** Testimonial ***/
+.testimonial-left,
+.testimonial-right {
+    position: relative;
+}
+
+.testimonial-left img,
+.testimonial-right img {
+    position: absolute;
+    padding: 5px;
+    border: 1px solid var(--secondary);
+    border-radius: 70px;
+}
+
+.testimonial-left img:nth-child(1),
+.testimonial-right img:nth-child(3) {
+    width: 70px;
+    height: 70px;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.testimonial-left img:nth-child(2),
+.testimonial-right img:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+}
+
+.testimonial-left img:nth-child(3),
+.testimonial-right img:nth-child(1) {
+    width: 50px;
+    height: 50px;
+    bottom: 10%;
+    right: 10%;
+}
+
+.testimonial-carousel .owl-item img {
+    width: 120px;
+    height: 120px;
+}
+
+.testimonial-carousel .testimonial-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border: 1px solid var(--secondary);
+    border-radius: 60px;
+}
+
+.testimonial-carousel .owl-dots {
+    height: 40px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 30px;
+    height: 30px;
+    background: #FFFFFF;
+    border: 2px solid var(--secondary);
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-dot::after {
+    position: absolute;
+    content: "";
+    width: 16px;
+    height: 16px;
+    top: 5px;
+    left: 5px;
+    border-radius: 16px;
+    background: var(--secondary);
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-dot.active::after {
+    background: var(--primary);
+}
+/* project */
+
+.projects{
+    background-color:rgb(225, 225, 245);
+    /* border: 1px solid black; */
+    width: 200px;
+    height: 50px;
+    text-decoration: none;
+    /* border-radius: 8px; */
+    text-align: center;
+}
+.no-underline{
+    text-decoration: none;
 }

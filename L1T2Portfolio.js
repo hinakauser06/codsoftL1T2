@@ -1,20 +1,3 @@
-// // const text = document.getElementById("about-me-para");
-// const text = "With this setup, the image will remain in a fixed position relativ";
-// const txt = text.textContent;
-// // console.log(text.textContent);
-// const speed = 100;
-// let i = 0;
-// // console.log(txt);
-// function typeWriter(){
-//     if(i< txt)
-//     {
-//         document.getElementById("about-me-para").innerHTML += text.charAt(i);
-//         i++;
-//         setTimeout(typeWriter, speed);
-//     }
-// }
-// window.onload = typeWriter;
-
 const text = `Hello! My name is Hina Kauser, With a passion for web development.
 I am a software engineer specializing in developing scalable applications
 using HTML, CSS, JavaScript, Bootstrap, ReactJs, Java, MongoDB and MySql 
@@ -24,12 +7,10 @@ I'm committed to delivering high-quality software solutions that drive
 business success.`;
 
 
-const speed = 10; // Speed of typing in milliseconds
+const speed = 100; 
 let i = 0;
 
 function typeWriter() {
-//    const txt =  document.getElementById('typewriter-text');
-    // txt.style.marginTop= '1000px';
     if (i < text.length) {
         if (text.charAt(i) === '\n') {
             document.getElementById('typewriter-text').innerHTML += '<br/>'; // Add line break
@@ -39,37 +20,35 @@ function typeWriter() {
         setTimeout(typeWriter, speed);
     }
 }
-
-// Start the typewriter effect
 window.onload = typeWriter;
 
-window.onscroll = function() {
-    const menu = document.getElementById('menu');
-    if (window.scrollY > 50) {
-        menu.style.top = '0';
-    } else {
-        menu.style.top = '-60px';
+document.addEventListener('DOMContentLoaded', function() {
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    // Function to handle click event
+    function handleClick(event) {
+        menuItems.forEach(item => item.classList.remove('active'));
+        event.target.classList.add('active');
     }
-};
 
+    // Add click event listeners to each menu item
+    menuItems.forEach(item => {
+        item.addEventListener('click', handleClick);
+    });
+    function highlightMenuItem() {
+        const sections = document.querySelectorAll('.section');
+        let scrollPos = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
 
+        sections.forEach(section => {
+            if (scrollPos >= section.offsetTop - 60 && scrollPos < section.offsetTop + section.offsetHeight - 60) {
+                let currentId = section.getAttribute('id');
+                document.querySelector('.menu-item.active').classList.remove('active');
+                document.querySelector(`.menu a[href="#${currentId}"]`).classList.add('active');
+            }
+        });
+    }
 
-
-
-
-
-// const text = "Welcome to My Portfolio!";
-// const speed = 100; // Speed of typing in milliseconds
-// let i = 0;
-
-// function typeWriter() {
-//     if (i < text.length) {
-//         document.getElementById('typewriter-text').innerHTML += text.charAt(i);
-//         i++;
-//         setTimeout(typeWriter, speed);
-//     }
-// }
-
-// // Start the typewriter effect
-// window.onload = typeWriter;
+    // Add scroll event listener to highlight menu item based on scroll position
+    window.addEventListener('scroll', highlightMenuItem);
+});
 
